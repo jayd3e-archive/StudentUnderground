@@ -1,0 +1,39 @@
+/*
+ *DEFAULT FONT STYLES
+ */
+h1,h2,h3,h4,h5,h6,span,a,legend {
+    color: #446373;
+    font-family:  Helvetica, Verdana, Geneva, sans-serif;
+}
+p {
+    color: #FFF;
+    font-family:  Helvetica, Verdana, Geneva, sans-serif;
+}
+a {
+    color: #FFF;
+    font-size: 78%;
+}
+p,span,legend {
+    font-size: 78%;
+}
+h1 {
+    font-size: 110%;
+}
+h2 {
+    font-size: 105%;
+}
+h3 {
+    font-size: 100%;
+}
+h4 {
+    font-size: 95%;
+}
+h5 {
+    font-size: 90%;
+}
+h6 {
+    font-size: 85%;
+}
+input,textarea {
+    color: #222526;   
+}

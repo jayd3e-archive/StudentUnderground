@@ -13,4 +13,8 @@ setup(name='StudentUnderground',
       url='http://localhost',
       packages=['studentunderground'],
       test_suite='studentunderground',
+      entry_points = """\
+      [paste.app_factory]
+      main = studentunderground:main
+      """,
       )
