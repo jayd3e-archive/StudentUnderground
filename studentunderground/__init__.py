@@ -3,7 +3,6 @@ from pyramid.authentication import AuthTktAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
 from studentunderground.security import groupfinder
 from studentunderground.models.site import SiteModel
-from studentunderground.handlers.test import TestHandler
 
 def main(global_config, **settings):
     '''Main config function'''
@@ -22,10 +21,8 @@ def main(global_config, **settings):
     #Handlers
     config.include('pyramid_handlers')
     #Handler Root Routes
-    config.add_handler('test_root', '/test', handler=TestHandler, action='index')
 
     #Handler Action Routes
-    config.add_handler('test_action', '/test/{action}', handler=TestHandler)
 
     return config.make_wsgi_app()
 
