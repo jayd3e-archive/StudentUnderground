@@ -8,7 +8,6 @@ def main(global_config, **settings):
                           root_factory=SiteModel)
 
     config.add_static_view(name='static', path='studentunderground:static')
-    config.add_static_view(name='docs', path='studentunderground:docs/build')
 
     #Handlers
     config.include('pyramid_handlers')
