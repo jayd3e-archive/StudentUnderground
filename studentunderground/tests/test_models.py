@@ -179,6 +179,8 @@ class TestModel(unittest.TestCase):
         self.assertEqual(group, assignment_info.group)
         self.assertIn(assignment_content, assignment_info.contents)
         self.assertEqual(assignment_content.info, assignment_info)
+        self.assertIn(assignment_comment, assignment_info.comments)
+        self.assertEqual(assignment_comment.info, assignment_info)
 
     def testArticleInfo(self):
         group = GroupModel(name="Kool Course",
@@ -209,7 +211,5 @@ class TestModel(unittest.TestCase):
         self.assertEqual(group, article_info.group)
         self.assertIn(article_content, article_info.contents)
         self.assertEqual(article_content.info, article_info)
-        self.assertIn(article_comment, article_info.comments)
-        self.assertEqual(article_comment.info, article_info)
         self.assertIn(article_comment, article_info.comments)
         self.assertEqual(article_comment.info, article_info)
