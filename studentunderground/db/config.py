@@ -4,6 +4,7 @@ class DbConfig(object):
     pw = 'sharp7&7'
     host = 'localhost'
     db = 'studentunderground_db'
+    file = False
 
 class TestConfig(object):
     engine = 'sqlite'

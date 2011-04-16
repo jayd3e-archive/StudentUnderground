@@ -1,4 +1,5 @@
 import unittest
+from pyramid import testing
 from datetime import datetime
 from studentunderground.models.base import initializeDb
 from studentunderground.models.base import engine
@@ -21,6 +22,23 @@ class TestModel(unittest.TestCase):
     def setUp(self):
         initializeDb(engine(TestConfig))
 
+    def testBaseModel(self):
+        class Config(object):
+            engine = 'mysql+mysqldb'
+            user = 'jayd3e'
+            pw = 'sharp7&7'
+            host = 'localhost'
+            db = 'studentunderground_db'
+            file = False
+
+        class Config2(object):
+            engine = 'sqlite'
+            file = '/studentunderground/tests/studentunderground_db.db'
+            user = False
+
+        initializeDb(engine(Config))
+        initializeDb(engine(Config2))
+    
     def testAclUserModel(self):
         acl_user = AclUserModel(email="jayd3e@test.com",
                                 identifier="jayd3e",
@@ -213,3 +231,6 @@ class TestModel(unittest.TestCase):
         self.assertEqual(article_content.info, article_info)
         self.assertIn(article_comment, article_info.comments)
         self.assertEqual(article_comment.info, article_info)
+
+    def tearDown(self):
+        testing.tearDown()
