@@ -64,13 +64,14 @@ class CreateEnv(object):
                       Column('email', String(50)),
                       Column('first_name', String(50)),
                       Column('last_name', String(50)),
-                      Column('profile_id', Integer)
+                      Column('acl_user_id', Integer)
         )
 
         profiles = Table('user_profiles', metadata,
                          Column('id', Integer, primary_key=True),
                          Column('created', DateTime),
                          Column('edited', DateTime),
+                         Column('user_id', Integer),
                          mysql_engine='InnoDB',
                          mysql_charset='utf8'
         )
@@ -107,7 +108,7 @@ class CreateEnv(object):
                                  Column('id', Integer, primary_key=True),
                                  Column('name', String(100)),
                                  Column('created', DateTime),
-                                 Column('class_id', Integer),
+                                 Column('group_id', Integer),
                                  mysql_engine='InnoDB',
                                  mysql_charset='utf8'
 
@@ -136,7 +137,7 @@ class CreateEnv(object):
                               Column('id', Integer, primary_key=True),
                               Column('name', String(100)),
                               Column('created', DateTime),
-                              Column('class_id', Integer),
+                              Column('group_id', Integer),
                               mysql_engine='InnoDB',
                               mysql_charset='utf8'
         )
