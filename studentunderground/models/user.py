@@ -1,6 +1,8 @@
 from studentunderground.models.base import Base
+from studentunderground.models.user_network import UserNetworkModel
 from studentunderground.models.user_group import UserGroupModel
 from studentunderground.models.group import GroupModel
+from studentunderground.models.network import NetworkModel
 from studentunderground.models.profile import ProfileModel
 from sqlalchemy import Column
 from sqlalchemy import Integer
@@ -19,6 +21,9 @@ class UserModel(Base):
     groups = relationship(GroupModel,
                           secondary=UserGroupModel,
                           backref="users")
+    networks = relationship(NetworkModel,
+                            secondary=UserNetworkModel,
+                            backref="users")
     profile = relationship(ProfileModel,
                            backref="user",
                            uselist=False)

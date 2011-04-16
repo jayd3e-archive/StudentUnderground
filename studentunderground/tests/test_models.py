@@ -95,9 +95,13 @@ class TestModel(unittest.TestCase):
         group = GroupModel(name="Kool Course",
                            created=datetime.now(),
                            edited=datetime.now())
+        network = NetworkModel(name="Kool Network",
+                               created=datetime.now(),
+                               edited=datetime.now())
         user.acl_user = acl_user
         user.profile = profile
         user.groups.append(group)
+        user.networks.append(network)
 
         self.assertTrue(str(user).startswith('<User'),
                         msg="str(UserModel) must start with '<User'")
@@ -107,6 +111,8 @@ class TestModel(unittest.TestCase):
         self.assertEqual(profile.user, user)
         self.assertIn(group, user.groups)
         self.assertIn(user, group.users)
+        self.assertIn(network, user.networks)
+        self.assertIn(user, network.users)
 
     def testProfileModel(self):
         user = UserModel(email="jayd3e@test.com",

@@ -37,6 +37,11 @@ class CreateEnv(object):
                              Column('user_id', Integer, ForeignKey('users.id'), primary_key=True),
                              Column('group_id', Integer, ForeignKey('groups.id'), primary_key=True)
         )
+        
+        users_networks = Table('users_networks', metadata,
+                             Column('user_id', Integer, ForeignKey('users.id'), primary_key=True),
+                             Column('network_id', Integer, ForeignKey('networks.id'), primary_key=True)
+        )
 
         acl_users_groups = Table('acl_users_groups', metadata,
                              Column('acl_user_id', Integer, ForeignKey('acl_users.id'), primary_key=True),
@@ -163,6 +168,7 @@ class CreateEnv(object):
 
         acl_users_groups.create()
         users_groups.create()
+        users_networks.create()
         acl_users.create()
         acl_groups.create()
         users.create()
