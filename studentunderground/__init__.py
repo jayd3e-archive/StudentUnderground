@@ -1,9 +1,13 @@
 from pyramid.config import Configurator
 from studentunderground.models.site import SiteModel
+from studentunderground.db.config import DbConfig
+from studentunderground.models.base import initializeDb
+from studentunderground.models.base import engine
 
 def main(global_config, **settings):
     '''Main config function'''
- 
+    initializeDb(engine(DbConfig))
+
     config = Configurator(settings=settings,
                           root_factory=SiteModel)
 

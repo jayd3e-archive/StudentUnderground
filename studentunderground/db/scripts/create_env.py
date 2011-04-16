@@ -4,6 +4,7 @@ from sqlalchemy import Integer
 from sqlalchemy import String
 from sqlalchemy import DateTime
 from sqlalchemy import MetaData
+from sqlalchemy import ForeignKey
 from sqlalchemy import create_engine
 from studentunderground.db.config import DbConfig
 from studentunderground.db.config import TestConfig
@@ -32,21 +33,38 @@ class CreateEnv(object):
     def create_schema(self):
         metadata = MetaData(self.db)
 
-        users  = Table('users', metadata,
+        users_groups = Table('users_groups', metadata,
+                             Column('user_id', Integer, ForeignKey('users.id'), primary_key=True),
+                             Column('group_id', Integer, ForeignKey('groups.id'), primary_key=True)
+        )
+
+        acl_users_groups = Table('acl_users_groups', metadata,
+                             Column('acl_user_id', Integer, ForeignKey('acl_users.id'), primary_key=True),
+                             Column('acl_group_id', Integer, ForeignKey('acl_groups.id'), primary_key=True)
+        )
+
+        acl_users  = Table('acl_users', metadata,
                       Column('id', Integer, primary_key=True),
                       Column('email', String(50)),
-                      Column('first_name', String(50)),
-                      Column('last_name', String(50)),
+                      Column('identifier', String(50)),
                       Column('password', String(40)),
                       mysql_engine='InnoDB',
                       mysql_charset='utf8'
         )
 
-        groups = Table('groups', metadata,
+        acl_groups = Table('acl_groups', metadata,
                        Column('id', Integer, primary_key=True),
                        Column('name', String(50)),
                        mysql_engine='InnoDB',
                        mysql_charset='utf8'
+        )
+
+        users = Table('users', metadata,
+                      Column('id', Integer, primary_key=True),
+                      Column('email', String(50)),
+                      Column('first_name', String(50)),
+                      Column('last_name', String(50)),
+                      Column('profile_id', Integer)
         )
 
         profiles = Table('user_profiles', metadata,
@@ -67,20 +85,29 @@ class CreateEnv(object):
 
         )
 
-        classes = Table('classes', metadata,
+        groups = Table('groups', metadata,
                         Column('id', Integer, primary_key=True),
                         Column('name', String(100)),
                         Column('created', DateTime),
                         Column('edited', DateTime),
+                        Column('network_id', Integer),
                         mysql_engine='InnoDB',
                         mysql_charset='utf8'
 
+        )
+
+        feed = Table('feed', metadata,
+                     Column('id', Integer, primary_key=True),
+                     Column('model', String(100)),
+                     Column('foreign_id', Integer),
+                     Column('created', DateTime)
         )
 
         assignment_infos = Table('assignment_infos', metadata,
                                  Column('id', Integer, primary_key=True),
                                  Column('name', String(100)),
                                  Column('created', DateTime),
+                                 Column('class_id', Integer),
                                  mysql_engine='InnoDB',
                                  mysql_charset='utf8'
 
@@ -90,6 +117,7 @@ class CreateEnv(object):
                                     Column('id', Integer, primary_key=True),
                                     Column('content', String(2000)),
                                     Column('edited', DateTime),
+                                    Column('assignment_id', Integer),
                                     mysql_engine='InnoDB',
                                     mysql_charset='utf8'
         )
@@ -99,6 +127,7 @@ class CreateEnv(object):
                                     Column('user_id', Integer),
                                     Column('content', String(1000)),
                                     Column('created', DateTime),
+                                    Column('assignment_id', Integer),
                                     mysql_engine='InnoDB',
                                     mysql_charset='utf8'
         )
@@ -107,18 +136,18 @@ class CreateEnv(object):
                               Column('id', Integer, primary_key=True),
                               Column('name', String(100)),
                               Column('created', DateTime),
+                              Column('class_id', Integer),
                               mysql_engine='InnoDB',
                               mysql_charset='utf8'
-
         )
 
         article_contents = Table('article_contents', metadata,
                                  Column('id', Integer, primary_key=True),
                                  Column('content', String(2000)),
                                  Column('edited', DateTime),
+                                 Column('assignment_id', Integer),
                                  mysql_engine='InnoDB',
                                  mysql_charset='utf8'
-
         )
 
         article_comments = Table('article_comments', metadata,
@@ -126,15 +155,20 @@ class CreateEnv(object):
                                  Column('user_id', Integer),
                                  Column('content', String(1000)),
                                  Column('created', DateTime),
+                                 Column('assignment_id', Integer),
                                  mysql_engine='InnoDB',
                                  mysql_charset='utf8'
         )
 
+        acl_users_groups.create()
+        users_groups.create()
+        acl_users.create()
+        acl_groups.create()
         users.create()
-        groups.create()
         profiles.create()
         networks.create()
-        classes.create()
+        groups.create()
+        feed.create()
         assignment_infos.create()
         assignment_contents.create()
         assignment_comments.create()
