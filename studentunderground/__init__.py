@@ -1,4 +1,5 @@
 from pyramid.config import Configurator
+from studentunderground.handlers.feed import FeedHandler
 from studentunderground.models.site import SiteModel
 from studentunderground.db.config import DbConfig
 from studentunderground.models.base import initializeDb
@@ -13,11 +14,14 @@ def main(global_config, **settings):
 
     config.add_static_view(name='static', path='studentunderground:static')
 
-    #Handlers
+    #Includes
     config.include('pyramid_handlers')
+    config.include('pyramid_tm')
     #Handler Root Routes
-
+    config.add_handler('site_root', '/', handler=FeedHandler, action='index')
+    config.add_handler('feed_root', '/feed', handler=FeedHandler, action='index')
     #Handler Action Routes
+    config.add_handler('feed_action', '/feed/{action}', handler=FeedHandler)
 
     return config.make_wsgi_app()
 

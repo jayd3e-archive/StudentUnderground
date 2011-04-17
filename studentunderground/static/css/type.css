@@ -2,15 +2,13 @@
  *DEFAULT FONT STYLES
  */
 h1,h2,h3,h4,h5,h6,span,a,legend {
-    color: #446373;
     font-family:  Helvetica, Verdana, Geneva, sans-serif;
+    font-weight: 300;
 }
 p {
-    color: #FFF;
     font-family:  Helvetica, Verdana, Geneva, sans-serif;
 }
 a {
-    color: #FFF;
     font-size: 78%;
 }
 p,span,legend {
@@ -33,7 +31,4 @@ h5 {
 }
 h6 {
     font-size: 85%;
-}
-input,textarea {
-    color: #222526;   
 }

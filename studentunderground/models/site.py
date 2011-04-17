@@ -1,2 +1,4 @@
 class SiteModel(object):
-    pass
+    
+    def __init__(self, request):
+        pass

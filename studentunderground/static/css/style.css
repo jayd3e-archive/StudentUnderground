@@ -4,12 +4,62 @@
  *
  */
 body {
-    background-color: #222526;
+    background-color: #FFF;
 }
-h1,h2,h3,h4,h5,h6 {
-    padding-bottom: 3px;
+/*
+ *
+ * HEADER
+ *
+ */
+.header {
+    height: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-bottom: solid thin #000;
+    clear: both;
 }
-input, textarea {
-    background-color: #ABB9BF;
-    border: 1px solid #FFF;
+.logo {
+    float: left;
+}
+.navigation {
+    float: left;
+    padding-left: 10px;
+}
+.navigation nav ul li {
+    float: left;
+    padding-right: 5px;
+}
+.account {
+    float: right;
+}
+.account nav ul li {
+    float: left;
+    padding-right: 5px;
+}
+/*
+ *
+ * MAIN
+ *
+ */
+
+/*
+ *
+ * FOOTER
+ *
+ */
+.footer {
+    width: 100%;
+    clear: both;
+    height: 20px;
+    display: block;
+    position: fixed;
+    overflow: visible visible;
+    bottom: 0px;
+}
+.footer .main {
+    margin: 0 auto;
+    width: 300px;
+}
+.footer .main nav ul li {
+    float: left;
 }
