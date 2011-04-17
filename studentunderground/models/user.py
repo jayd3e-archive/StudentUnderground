@@ -32,7 +32,8 @@ class UserModel(Base):
         self.__dict__.update(fields)
 
     def __repr__(self):
-        return "<User('%s', '%s', '%s', '%s')>" % (self.id,
-                                                   self.email,
-                                                   self.first_name,
-                                                   self.last_name)
+        return "<User('%s', '%s', '%s', '%s', '%s')>" % (self.id,
+                                                         self.email,
+                                                         self.first_name,
+                                                         self.last_name,
+                                                         self.acl_user_id)

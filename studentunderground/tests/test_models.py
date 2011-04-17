@@ -16,6 +16,7 @@ from studentunderground.models.user import UserModel
 from studentunderground.models.profile import ProfileModel
 from studentunderground.models.network import NetworkModel
 from studentunderground.models.group import GroupModel
+from studentunderground.models.feed import FeedModel
 from studentunderground.db.config import TestConfig
 
 class TestModel(unittest.TestCase):
@@ -238,5 +239,17 @@ class TestModel(unittest.TestCase):
         self.assertIn(article_comment, article_info.comments)
         self.assertEqual(article_comment.info, article_info)
 
+    def testFeedModel(self):
+        feed = FeedModel(model="AssignmentModel",
+                         foreign_id=1,
+                         created=datetime.now())
+
+        session = Session()
+        session.add(feed)
+        session.flush()
+
+        self.assertTrue(str(feed).startswith('<Feed'),
+                        msg="str(Feedmodel) must start with '<Feed'")
+    
     def tearDown(self):
         testing.tearDown()
