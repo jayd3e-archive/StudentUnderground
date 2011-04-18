@@ -1,14 +1,9 @@
 <%inherit file="../layouts/base.mako"/>
 
-<%def name="body()">
-   <p>blah</p> 
+<%def name="mainbar()">
+   <p>Mainbar</p> 
 </%def>
 
-<%def name="operations()">
-   <p>blah</p> 
+<%def name="sidebar()">
+   <p>Sidebar</p> 
 </%def>
-
-<%def name="ads()">
-   <p>blah</p> 
-</%def>
-

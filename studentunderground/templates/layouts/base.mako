@@ -11,19 +11,27 @@
     </head>
     <body>
         <div class="header">
-            ${header.header(here)}
+            <div class="main">
+                ${header.header(here)}
+            </div>
         </div>
-        <div class="main">
-            <fieldset class="body">
-                <legend>Content</legend>
-                ${self.body()}
-            </fieldset>
-        </div>
-        <div class="side">
-                    
+        <div class="body">
+            <div class="main">
+                <div class="mainbar">
+                    <fieldset>
+                        <legend>Mainbar</legend>
+                        ${self.mainbar()}
+                    </fieldset>
+                </div>
+                <div class="sidebar">
+                    ${self.sidebar()}            
+                </div>
+            </div>
         </div>
         <div class="footer">
-            ${footer.footer()}
+            <div class="main">
+                ${footer.footer()}
+            </div>
         </div>
     </body>
 </html>

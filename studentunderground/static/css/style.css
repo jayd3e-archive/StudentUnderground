@@ -11,19 +11,21 @@ body {
  * HEADER
  *
  */
-.header {
-    height: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-    border-bottom: solid thin #000;
+div.header {
     clear: both;
+    border-bottom: solid thin #000;
+}
+div.header div.main {
+    height: 20px;
+    width: 960px;
+    margin: 0 auto;
 }
 .logo {
     float: left;
 }
 .navigation {
     float: left;
-    padding-left: 10px;
+    padding-left: 5px;
 }
 .navigation nav ul li {
     float: left;
@@ -34,32 +36,50 @@ body {
 }
 .account nav ul li {
     float: left;
-    padding-right: 5px;
+    padding-left: 5px;
 }
 /*
  *
  * MAIN
  *
  */
-
+div.body {
+    clear: both;
+    width: 100%;
+}
+div.body div.main {
+    width: 960px;
+    margin: 0 auto;
+}
+div.body div.main div.mainbar {
+    width: 760px;
+    float: left;
+}
+div.body div.main div.mainbar fieldset {
+    padding: 5px;
+}
+div.body div.main div.sidebar {
+    width: 190px;
+    float: right;
+    padding: 5px;
+}
 /*
  *
  * FOOTER
  *
  */
-.footer {
-    width: 100%;
+div.footer {
     clear: both;
+    width: 100%;
     height: 20px;
     display: block;
     position: fixed;
     overflow: visible visible;
+    border-top: solid thin #000;
     bottom: 0px;
 }
-.footer .main {
+div.footer div.main {
+    width: 960px;
     margin: 0 auto;
-    width: 300px;
-}
-.footer .main nav ul li {
-    float: left;
+    text-align: center;
 }
