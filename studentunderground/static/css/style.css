@@ -50,6 +50,7 @@ div.body {
 div.body div.main {
     width: 960px;
     margin: 0 auto;
+    margin-top: 5px;
 }
 div.body div.main div.mainbar {
     width: 760px;
