@@ -1,12 +1,12 @@
 from pyramid_handlers import action
 
-class FeedHandler(object):
+class SiteHandler(object):
 
     def __init__(self, request):
         self.request = request
         self.here = request.environ['PATH_INFO']
 
-    @action(renderer='feed/index.mako')
+    @action(renderer='site/index.mako')
     def index(self):
         title = "S2S | Feed"
         return {'here':self.here,
