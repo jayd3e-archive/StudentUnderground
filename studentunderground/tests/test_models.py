@@ -39,7 +39,7 @@ class TestModel(unittest.TestCase):
 
         initializeDb(engine(Config))
         initializeDb(engine(Config2))
-    
+
     def testAclUserModel(self):
         acl_user = AclUserModel(email="jayd3e@test.com",
                                 identifier="jayd3e",
@@ -250,6 +250,6 @@ class TestModel(unittest.TestCase):
 
         self.assertTrue(str(feed).startswith('<Feed'),
                         msg="str(Feedmodel) must start with '<Feed'")
-    
+
     def tearDown(self):
         testing.tearDown()
