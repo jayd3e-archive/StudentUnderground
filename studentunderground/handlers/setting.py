@@ -1,15 +1,15 @@
 from pyramid_handlers import action
 
-class SiteHandler(object):
+class SettingHandler(object):
 
     def __init__(self, request):
         self.request = request
         self.here = request.environ['PATH_INFO']
 
-    @action(renderer='site/index.mako')
+    @action(renderer='setting/index.mako')
     def index(self):
-        title = "S2S | Feed"
-        legend = "Site"
+        title = "S2S | Settings"
+        legend = "Settings"
         return {'here':self.here,
                 'title':title,
                 'legend':legend}

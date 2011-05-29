@@ -19,7 +19,7 @@
             <div class="main">
                 <div class="mainbar">
                     <fieldset>
-                        <legend>Mainbar</legend>
+                        <legend>${legend}</legend>
                         ${self.mainbar()}
                     </fieldset>
                 </div>

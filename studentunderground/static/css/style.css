@@ -14,6 +14,7 @@ body {
 div.header {
     clear: both;
     border-bottom: solid thin #000;
+    padding-top: 5px;
 }
 div.header div.main {
     height: 20px;

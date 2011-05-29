@@ -6,13 +6,13 @@
         <nav>
             <ul>
                 <li>
-                    <a href="/hw">HW</a>
+                    <a href="/hw">hw</a>
                 </li>
                 <li>
-                    <a href="/group">Groups</a>
+                    <a href="/group">groups</a>
                 </li>
                 <li>
-                    <a href="/article">Articles</a>
+                    <a href="/article">articles</a>
                 </li>
             </ul>
         </nav>
@@ -27,13 +27,13 @@
                     <span> - </span>
                 </li>
                 <li>
-                    <a href="/settings">Settings</a>
+                    <a href="/settings">settings</a>
                 </li>
                 <li>
                     <span> - </span>
                 </li>
                 <li>
-                    <a href="/logout">Logout</a> 
+                    <a href="/logout">logout</a> 
                 </li>
             </ul>
         </nav>

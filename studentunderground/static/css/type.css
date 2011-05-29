@@ -10,6 +10,7 @@ p {
 }
 a {
     font-size: 78%;
+    text-decoration: none;
 }
 p,span,legend {
     font-size: 78%;
