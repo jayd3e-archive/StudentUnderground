@@ -61,9 +61,15 @@ div.body div.main div.mainbar fieldset {
     padding: 5px;
 }
 div.body div.main div.sidebar {
-    width: 190spx;
+    width: 190px;
     float: right;
     padding: 5px;
+}
+div.body div.main div.mainbar > {
+	clear: both;
+}
+div.body div.main div.sidebar > {
+	clear: both;
 }
 /*
  *

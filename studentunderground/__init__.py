@@ -3,6 +3,7 @@ from pyramid.exceptions import NotFound
 from pyramid.exceptions import Forbidden
 from studentunderground.handlers.site import SiteHandler
 from studentunderground.handlers.article import ArticleHandler
+from studentunderground.handlers.assignment import AssignmentHandler
 from studentunderground.handlers.group import GroupHandler
 from studentunderground.handlers.hw import HwHandler
 from studentunderground.handlers.setting import SettingHandler
@@ -26,9 +27,11 @@ def main(global_config, **settings):
     #Includes
     config.include('pyramid_handlers')
     config.include('pyramid_tm')
+    
     #Handler Root Routes
     config.add_handler('site_root', '/', handler=SiteHandler, action='index')
     config.add_handler('article_root', '/articles', handler=ArticleHandler, action='index')
+    config.add_handler('assignment_root', '/assignments', handler=AssignmentHandler, action='index')
     config.add_handler('group_root', '/groups', handler=GroupHandler, action='index')
     config.add_handler('hw_root', '/hw', handler=HwHandler, action='index')
     config.add_handler('setting_root', '/settings', handler=SettingHandler, action='index')
@@ -37,6 +40,7 @@ def main(global_config, **settings):
     #Handler Action Routes
     config.add_handler('site_action', '/{action}', handler=SiteHandler)
     config.add_handler('article_action', '/articles/{action}', handler=ArticleHandler)
+    config.add_handler('assignment_action', '/assignments/{action}', handler=AssignmentHandler)
     config.add_handler('group_action', '/groups/{action}', handler=GroupHandler)
     config.add_handler('hw_action', '/hw/{action}', handler=HwHandler)
     config.add_handler('setting_action', '/settings/{action}', handler=SettingHandler)
