@@ -27,6 +27,7 @@ def main(global_config, **settings):
     config.add_handler('group_root', '/groups', handler=GroupHandler, action='index')
     config.add_handler('hw_root', '/hw', handler=HwHandler, action='index')
     config.add_handler('setting_root', '/settings', handler=SettingHandler, action='index')
+    config.add_handler('user_root', '/user', handler=UserHandler, action='index')
 
     #Handler Action Routes
     config.add_handler('site_action', '/{action}', handler=SiteHandler)
@@ -34,6 +35,7 @@ def main(global_config, **settings):
     config.add_handler('group_action', '/groups/{action}', handler=GroupHandler)
     config.add_handler('hw_action', '/hw/{action}', handler=HwHandler)
     config.add_handler('setting_action', '/settings/{action}', handler=SettingHandler)
+    config.add_handler('user_action', '/user/{action}', handler=UserHandler)
 
     return config.make_wsgi_app()
 

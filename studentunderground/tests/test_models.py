@@ -19,7 +19,7 @@ from studentunderground.models.group import GroupModel
 from studentunderground.models.feed import FeedModel
 from studentunderground.db.config import TestConfig
 
-class TestModel(unittest.TestCase):
+class TestModels(unittest.TestCase):
     def setUp(self):
         initializeDb(engine(TestConfig))
 
@@ -27,7 +27,7 @@ class TestModel(unittest.TestCase):
         class Config(object):
             engine = 'mysql+mysqldb'
             user = 'jayd3e'
-            pw = 'sharp7&7'
+            pw = 'hoppy&Bunny'
             host = 'localhost'
             db = 'studentunderground_db'
             file = False
