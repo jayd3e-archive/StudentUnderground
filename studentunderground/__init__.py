@@ -4,6 +4,7 @@ from studentunderground.handlers.article import ArticleHandler
 from studentunderground.handlers.group import GroupHandler
 from studentunderground.handlers.hw import HwHandler
 from studentunderground.handlers.setting import SettingHandler
+from studentunderground.handlers.user import UserHandler
 from studentunderground.models.site import SiteModel
 from studentunderground.db.config import DbConfig
 from studentunderground.models.base import initializeDb
