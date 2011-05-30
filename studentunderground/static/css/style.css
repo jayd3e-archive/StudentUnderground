@@ -61,7 +61,7 @@ div.body div.main div.mainbar fieldset {
     padding: 5px;
 }
 div.body div.main div.sidebar {
-    width: 190px;
+    width: 190spx;
     float: right;
     padding: 5px;
 }
@@ -83,5 +83,11 @@ div.footer {
 div.footer div.main {
     width: 960px;
     margin: 0 auto;
+    text-align: center;
+}
+/*
+*   Exceptions
+*/
+.notFoundImg {
     text-align: center;
 }

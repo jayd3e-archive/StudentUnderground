@@ -1,10 +1,14 @@
 from pyramid.config import Configurator
+from pyramid.exceptions import NotFound
+from pyramid.exceptions import Forbidden
 from studentunderground.handlers.site import SiteHandler
 from studentunderground.handlers.article import ArticleHandler
 from studentunderground.handlers.group import GroupHandler
 from studentunderground.handlers.hw import HwHandler
 from studentunderground.handlers.setting import SettingHandler
 from studentunderground.handlers.user import UserHandler
+from studentunderground.handlers.exceptions import notFound
+from studentunderground.handlers.exceptions import forbidden
 from studentunderground.models.site import SiteModel
 from studentunderground.db.config import DbConfig
 from studentunderground.models.base import initializeDb
@@ -37,6 +41,15 @@ def main(global_config, **settings):
     config.add_handler('hw_action', '/hw/{action}', handler=HwHandler)
     config.add_handler('setting_action', '/settings/{action}', handler=SettingHandler)
     config.add_handler('user_action', '/user/{action}', handler=UserHandler)
+    
+    #Exception Views
+    config.add_view(notFound,
+                    context=NotFound,
+                    permission='__no_permission_required__',
+                    renderer='exceptions/not_found.mako')
+    config.add_view(forbidden,
+                    context=Forbidden,
+                    permission='__no_permission_required__')
 
     return config.make_wsgi_app()
 
