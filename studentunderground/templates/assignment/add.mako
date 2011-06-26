@@ -1,7 +1,7 @@
 <%inherit file="../layouts/base.mako"/>
 
 <%def name="mainbar()">
-   ${form}
+   ${form | n}
 </%def>
 
 <%def name="sidebar()">

@@ -1,6 +1,8 @@
+from deform import Form
 from pyramid.config import Configurator
 from pyramid.exceptions import NotFound
 from pyramid.exceptions import Forbidden
+from studentunderground.utils import mako_renderer
 from studentunderground.handlers.site import SiteHandler
 from studentunderground.handlers.article import ArticleHandler
 from studentunderground.handlers.assignment import AssignmentHandler
@@ -17,8 +19,8 @@ from studentunderground.models.base import engine
 
 def main(global_config, **settings):
     '''Main config function'''
+    Form.set_default_renderer(mako_renderer)
     initializeDb(engine(DbConfig))
-
     config = Configurator(settings=settings,
                           root_factory=SiteModel)
 
