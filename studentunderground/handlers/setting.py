@@ -11,5 +11,4 @@ class SettingHandler(object):
         title = "S2S | Settings"
         legend = "Settings"
         return {'here':self.here,
-                'title':title,
-                'legend':legend}
+                'title':title}

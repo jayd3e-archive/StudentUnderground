@@ -1,6 +1,7 @@
 from pyramid_handlers import action
 from studentunderground.forms.assignment.add import AddAssignmentSchema
 from deform import Form
+from deform.exception import ValidationFailure
 
 class AssignmentHandler(object):
 
@@ -13,8 +14,7 @@ class AssignmentHandler(object):
         title = "S2S | Assignments"
         legend = "Assignments"
         return {'here':self.here,
-                'title':title,
-                'legend':legend}
+                'title':title}
         
     @action(renderer='assignment/add.mako')
     def add(self):
@@ -28,11 +28,12 @@ class AssignmentHandler(object):
             controls = self.request.POST.items()
             try:
                 form.validate(controls)
-            except ValidationFailure, e:
-                return {'form':e.render()}
+            except ValidationFailure as e:
+                return {'form':e.render(),
+                        'here':self.here,
+                        'title':title}
             return {'form':'OK'}
 
         return {'here':self.here,
                 'title':title,
-                'legend':legend,
                 'form':form.render()}

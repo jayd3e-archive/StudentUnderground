@@ -11,5 +11,4 @@ class SiteHandler(object):
         title = "S2S | Feed"
         legend = "Site"
         return {'here':self.here,
-                'title':title,
-                'legend':legend}
+                'title':title}

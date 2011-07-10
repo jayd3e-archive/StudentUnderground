@@ -56,14 +56,12 @@ div.body div.main {
 div.body div.main div.mainbar {
     width: 760px;
     float: left;
-}
-div.body div.main div.mainbar fieldset {
-    padding: 5px;
+    padding-top: 5px;
 }
 div.body div.main div.sidebar {
-    width: 190px;
+    width: 200px;
     float: right;
-    padding: 5px;
+    padding-top: 5px;
 }
 div.body div.main div.mainbar > {
 	clear: both;

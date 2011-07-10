@@ -11,5 +11,4 @@ class UserHandler(object):
         title = "S2S | User"
         legend = "User"
         return {'here':self.here,
-                'title':title,
-                'legend':legend}
+                'title':title}

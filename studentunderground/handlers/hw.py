@@ -11,5 +11,4 @@ class HwHandler(object):
         title = "S2S | HW"
         legend = "HW"
         return {'here':self.here,
-                'title':title,
-                'legend':legend}
+                'title':title}

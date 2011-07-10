@@ -18,10 +18,7 @@
         <div class="body">
             <div class="main">
                 <div class="mainbar">
-                    <fieldset>
-                        <legend>${legend}</legend>
-                        ${self.mainbar()}
-                    </fieldset>
+                	${self.mainbar()}
                 </div>
                 <div class="sidebar">
                     ${self.sidebar()}            

@@ -11,5 +11,4 @@ class ArticleHandler(object):
         title = "S2S | Articles"
         legend = "Articles"
         return {'here':self.here,
-                'title':title,
-                'legend':legend}
+                'title':title}

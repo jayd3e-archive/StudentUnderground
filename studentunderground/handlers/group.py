@@ -11,5 +11,4 @@ class GroupHandler(object):
         title = "S2S | Groups"
         legend = "Groups"
         return {'here':self.here,
-                'title':title,
-                'legend':legend}
+                'title':title}
