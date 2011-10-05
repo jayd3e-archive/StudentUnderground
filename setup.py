@@ -18,7 +18,7 @@ setup(name='StudentUnderground',
                         'deform'],
       url='http://localhost',
       packages=['studentunderground'],
-      test_suite='studentunderground',
+      test_suite='studentunderground.tests',
       entry_points = """\
       [paste.app_factory]
       main = studentunderground:main
